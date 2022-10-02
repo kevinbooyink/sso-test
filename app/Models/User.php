@@ -42,4 +42,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function boot()
+    {
+        parent::boot();
+
+        //Revoke tokens when user is updated
+        self::updating(function (User $user) {
+            foreach ($user->tokens as $token) {
+                $token->revoke();
+            }
+        });
+    }
 }
