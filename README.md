@@ -72,6 +72,8 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 2. Run `composer install`
 3. Make sure the .env is set up properly.
 4. Run `php artisan migrate`
-5. Run `php artisan passport:install`. This will prepare oAuth clients to make sure th API can work. Save this information, as these client id's & secrets will be used in the Client applications.
-6.  Run `npm install` & `npm run dev` to get a front-end setup properly.
+5. Run `php artisan passport:install`.
+6. Run `php artisan passport:client` to create a oAuth client for the client application. Make sure that the requested callback links to the client application url. Remember the client_id and client_secret, as they are needed for the config of the client application.
+6. Run `npm install` & `npm run dev` to get a front-end setup properly.
 7. Run the program, either through a webserver or through `php artisan serve`
+8. Either run `php artisan db:seed` to make a 'standard' account (email: test@example.com, username: test1234), or navigate to `/admin/register` to create your own account.

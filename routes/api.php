@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,7 @@ Route::middleware('auth:api')->get('/logout', function (Request $request) {
     foreach($request->user()->tokens as $token) {
         $token->revoke();
     };
+    Auth::logout();
     return response()->json([
         "message" => "Logged out succesfully"
     ]);
