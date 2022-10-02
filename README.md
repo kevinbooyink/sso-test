@@ -64,3 +64,14 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Installation
+
+1. Make sure Composer & PHP are installed on the system
+2. Run `composer install`
+3. Make sure the .env is set up properly.
+4. Run `php artisan migrate`
+5. Run `php artisan passport:install`. This will prepare oAuth clients to make sure th API can work. Save this information, as these client id's & secrets will be used in the Client applications.
+6.  Run `npm install` & `npm run dev` to get a front-end setup properly.
+7. Run the program, either through a webserver or through `php artisan serve`
