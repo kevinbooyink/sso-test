@@ -14,12 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/register', [RegistrationController::class, 'create']);
-Route::post('register', [RegistrationController::class, 'store']);
-
-// Route::get('/login', 'SessionsController@create');
-// Route::post('/login', 'SessionsController@store');
-// Route::get('/logout', 'SessionsController@destroy');
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
